@@ -25,19 +25,19 @@ When(`I click on menu button {}`, (title) => {
         .click()
 })
 
-When(`I click on side bar button {}`, (title) => {
-    documentationPage.getSideBarButton(title)
+When(`I click on navigation bar button {}`, (title) => {
+    documentationPage.getNavigationBarButton(title)
         .should('be.visible')
         .click()
 })
 
-When(`I can't see side bar button {}`, (title) => {
-    documentationPage.getSideBarButton(title)
+When(`I can't see navigation bar button {}`, (title) => {
+    documentationPage.getNavigationBarButton(title)
         .should('not.exist')
 })
 
-When(`I see side bar button {}`, (title) => {
-    documentationPage.getSideBarButton(title)
+When(`I see navigation bar button {}`, (title) => {
+    documentationPage.getNavigationBarButton(title)
         .should('be.visible')
         .should('be.visible', 'true')
 })

@@ -24,7 +24,7 @@ export class DocumentationPage {
         return cy.get('div[class="flex-1"] input[type="search"]')
     }
 
-    getSideBarButton(title) {
+    getNavigationBarButton(title) {
         return cy.get('div[class*="flex-row"] a:contains(' + title + ')')
     }
 

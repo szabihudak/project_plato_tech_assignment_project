@@ -14,29 +14,29 @@ Feature: Main FLows
     When  I click on link Project Socrates
     Then  I check if the content of the chapter title is introduction_chapter_title
 
-    # Navigate back with side bar button
+    # Navigate back with navigation bar button
     When  I click on menu button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
-    Then  I click on side bar button Introduction
+    Then  I click on navigation bar button Introduction
     Then  I check if the content of the chapter title is introduction_chapter_title
 
-    # Navigating only with side bar buttons
-    When  I see side bar button Didcomm
-    And   I can't see side bar button Introduction
-    And   I can't see side bar button Self Sovereign Identity
-    And   I click on side bar button Didcomm
+    # Navigating only with navigation bar buttons
+    When  I see navigation bar button Didcomm
+    And   I can't see navigation bar button Introduction
+    And   I can't see navigation bar button Self Sovereign Identity
+    And   I click on navigation bar button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
-    When  I can't see side bar button Didcomm
-    And   I see side bar button Introduction
-    And   I see side bar button Self Sovereign Identity
-    And   I click on side bar button Introduction
+    When  I can't see navigation bar button Didcomm
+    And   I see navigation bar button Introduction
+    And   I see navigation bar button Self Sovereign Identity
+    And   I click on navigation bar button Introduction
     Then  I check if the content of the chapter title is introduction_chapter_title
-    When  I click on side bar button Didcomm
+    When  I click on navigation bar button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
-    When  I click on side bar button Self Sovereign Identity
+    When  I click on navigation bar button Self Sovereign Identity
     Then  I check if the content of the chapter title is ssi_chapter_title
-    And   I see side bar button Didcomm
-    When  I click on side bar button Didcomm
+    And   I see navigation bar button Didcomm
+    When  I click on navigation bar button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
 
 
