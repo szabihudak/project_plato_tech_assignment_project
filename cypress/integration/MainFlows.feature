@@ -1,4 +1,4 @@
-Feature: Main FLows
+Feature: Main Flows
 
   Scenario: Check the navigation between the pages
     Given I check if the content of the chapter title is introduction_chapter_title
