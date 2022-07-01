@@ -1,91 +1,76 @@
 Feature: Main FLows
 
-  Scenario: Happy FLow - User select/deselect innventory items and complete the check out process
-    Given  I log in as standard_user user with secret_sauce password successful
-    And    I check if the shopping cart badge shows 0 selected element
-    When   I add the Sauce Labs Backpack item to | from the cart
-    Then   I check if the shopping cart badge shows 1 selected element
-    When   I add the Sauce Labs Fleece Jacket item to | from the cart
-    Then   I check if the shopping cart badge shows 2 selected element
-    When   I remove the Sauce Labs Fleece Jacket item to | from the cart
-    Then   I check if the shopping cart badge shows 1 selected element
-    When   I open product page by clicking on picture and add the Sauce Labs Bolt T-Shirt item
-    Then   I check if the shopping cart badge shows 2 selected element
-    When   I open product page by clicking on title and remove the Sauce Labs Bolt T-Shirt item
-    Then   I check if the shopping cart badge shows 1 selected element
-    When   I check the cart - Item name: Sauce Labs Backpack , item description: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection. , price: $29.99 -  and check out
-    And    I fill the checkout form with first name Szabolcs , last name Hudak and postal code 1108 and continue
-    And    I check the item overview - Item name: Sauce Labs Backpack , item description: carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection. , price: $29.99
-    And    I check the payment overview - Item total: Item total: $29.99 , tax: Tax: $2.40 , total: Total: $32.39
-    Then   I finish the checkout process
+  Scenario: Check the navigation between the pages
+    Given I check if the content of the chapter title is introduction_chapter_title
+    # Navidate back to the fisct chapter by pressing on Employee management system documentation link
+    When  I click on menu button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    When  I click on link Employee management system documentation
+    Then  I check if the content of the chapter title is introduction_chapter_title
 
-  Scenario: Alternative ways and cancelations during the checkout process
-    Given  I log in as standard_user user with secret_sauce password successful
-    And    I check if the shopping cart badge shows 0 selected element
-    When   I open product page by clicking on picture and back to product the Sauce Labs Bolt T-Shirt item
-    Then   I check if the shopping cart badge shows 0 selected element
-    When   I open product page by clicking on title and back to product the Sauce Labs Fleece Jacket item
-    Then   I check if the shopping cart badge shows 0 selected element
-    When   I add the Sauce Labs Onesie item to | from the cart
-    Then   I check if the shopping cart badge shows 1 selected element
-    When   I open the cart and continue shopping
-    And    I check if the shopping cart badge shows 1 selected element
-    And    I open the cart and check out
-    Then   I check if the shopping cart badge shows 1 selected element
-    When   I fill the checkout form with first name Szabolcs , last name Hudak and postal code 1108 and cancel
-    And    I check if the shopping cart badge shows 1 selected element
-    And    I open the cart and continue shopping
-    And    I open the cart and check out
-    And    I fill the checkout form with first name Szabolcs , last name Hudak and postal code 1108 and continue
-    And    I cancel the checkout process
-    Then   I check if the shopping cart badge shows 1 selected element
+    # Navidate back to the fisct chapter by pressing on Project Socrates link
+    When  I click on menu button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    When  I click on link Project Socrates
+    Then  I check if the content of the chapter title is introduction_chapter_title
 
-  Scenario Outline: Sorting in the the inventory
-    Given I log in as <user_name> user with <password> password successful
-    When  I sort items by Price (low to high)
-    Then  I check the Price (low to high) sort order
-    When  I sort items by Price (high to low)
-    Then  I check the Price (high to low) sort order
-    When  I sort items by Name (Z to A)
-    Then  I check the Name (Z to A) sort order
-    When  I sort items by Name (A to Z)
-    Then  I check the Name (A to Z) sort order
-    Examples:
-      | user_name               | password     |
-      | standard_user           | secret_sauce |
-      | problem_user            | secret_sauce |
-      | performance_glitch_user | secret_sauce |
+    # Navigate back with side bar button
+    When  I click on menu button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    Then  I click on side bar button Introduction
+    Then  I check if the content of the chapter title is introduction_chapter_title
 
-      #Scenario : Add and delete items from Cart
-  #  Given I open the Application
-  #  When  I log in as standard_user user with secret_sauce password
+    # Navigating only with side bar buttons
+    When  I see side bar button Didcomm
+    And   I can't see side bar button Introduction
+    And   I can't see side bar button Self Sovereign Identity
+    And   I click on side bar button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    When  I can't see side bar button Didcomm
+    And   I see side bar button Introduction
+    And   I see side bar button Self Sovereign Identity
+    And   I click on side bar button Introduction
+    Then  I check if the content of the chapter title is introduction_chapter_title
+    When  I click on side bar button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    When  I click on side bar button Self Sovereign Identity
+    Then  I check if the content of the chapter title is ssi_chapter_title
+    And   I see side bar button Didcomm
+    When  I click on side bar button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
 
-  Scenario: Error handlings and validations
-    Given I try to log in as NULL user with NULL password
-    And   I check if error message Epic sadface: Username is required appears
-    When  I try to log in as standard_user user with NULL password
-    Then  I check if error message Epic sadface: Password is required appears
-    When  I try to log in as NULL user with secret_sauce password
-    Then  I check if error message Epic sadface: Username is required appears
-    When  I try to log in as standard_user user with asdf password
-    Then  I check if error message Epic sadface: Username and password do not match any user in this service appears
-    When  I try to log in as standard_user_2 user with secret_sauce password
-    Then  I check if error message Epic sadface: Username and password do not match any user in this service appears
-    When  I try to log in as locked_out_user user with secret_sauce password
-    Then  I check if error message Epic sadface: Sorry, this user has been locked out. appears
-    And   I wait 3 sec
-    When  I log in as standard_user user with secret_sauce password successful
-    And   I open the cart and check out
-    And   I try to fill the checkout form with first name NULL , last name NULL and postal code NULL and validate
-    Then  I check if error message Error: First Name is required appears
-    When  I try to fill the checkout form with first name Szabolcs , last name NULL and postal code NULL and validate
-    Then  I check if error message Error: Last Name is required appears
-    When  I try to fill the checkout form with first name NULL , last name Hudak and postal code NULL and validate
-    Then  I check if error message Error: First Name is required appears
-    When  I try to fill the checkout form with first name NULL , last name NULL and postal code 1108 and validate
-    Then  I check if error message Error: First Name is required appears
-    When  I try to fill the checkout form with first name SzabolcsL , last name Hudak and postal code NULL and validate
-    Then  I check if error message Error: Postal Code is required appears
+
+  Scenario: Content Check - Check the content of each document page / links in the text
+    Given I check if the content of the chapter title is introduction_chapter_title
+    And   I check if the content of the paragraph is introduction_paragraph_content
+    When  I click on menu button Didcomm
+    Then  I check if the content of the chapter title is didcomm_chapter_title
+    And   I check if the content of the paragraph is didcomm_paragrahp_1
+    And   I check if the content of the sub chapter title is didcomm_sub_chapter_title
+    And   I check if the content of the paragraph is didcomm_paragrahp_2
+    When  I click on menu button Self Sovereign Identity
+    Then  I check if the content of the chapter title is ssi_chapter_title
+    And   I check if the content of the paragraph is ssi_paragraph_1
+    And   I check if the content of the paragraph is ssi_paragraph_2
+    And   I check if the content of the paragraph is ssi_paragraph_3
+    And   I check if the content of the paragraph is ssi_paragraph_4
+    When  I click on menu button Didcomm
+    Then  I click on link decentralized identifiers
+    And   I check if new tab was opened with https://www.w3.org/TR/did-core/ url
+    And   I check if the content of the chapter title is ssi_page_chapter_title
+
+
+  Scenario: Editor functionalities - Search field and Edit Page function
+    Given I check if the content of the chapter title is introduction_chapter_title
+    When  I search for Welcome in the text
+    # How this sould be working, this seems to be not working properly currently
+
+    When I click on link Edit this page
+    # No information about the exact funcionality, but we should see the content we want to edit so let's check that
+    Then I check if the content of the chapter title is introduction_chapter_title
+
+
+    
 
 
 
