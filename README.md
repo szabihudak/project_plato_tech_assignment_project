@@ -55,3 +55,6 @@ After the report creation you will find the BDD Cucumber HTML report in the ./re
 
 ###Limitations
 I recommend to use Chrome or Edge for testing, new tab handling does not work correctly in case of Firefox in the current Cypress version.
+
+###Bugs ang Questions
+Bugs and questions are in the ./BugsAndQuestions.md file
