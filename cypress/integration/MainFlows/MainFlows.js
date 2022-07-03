@@ -3,13 +3,12 @@ import {documentationPage} from "../../support/PageObjects/DocumentationPage"
 
 import {testData} from "../../support/TestData"
 
-
 before(function () {
-    cy.visit('https://very-important.vercel.app/',)
+    cy.visit(testData.getAppUrl())
 });
 
 afterEach(function () {
-    cy.visit('https://very-important.vercel.app/',)
+    cy.visit(testData.getAppUrl())
 });
 
 When(`I click on link {}`, (link) => {

@@ -2,13 +2,13 @@ Feature: Main Flows
 
   Scenario: Check the navigation between the pages
     Given I check if the content of the chapter title is introduction_chapter_title
-    # Navidate back to the fisct chapter by pressing on Employee management system documentation link
+    # Navigate back to the first chapter by pressing on Employee management system documentation link
     When  I click on menu button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
     When  I click on link Employee management system documentation
     Then  I check if the content of the chapter title is introduction_chapter_title
 
-    # Navidate back to the fisct chapter by pressing on Project Socrates link
+    # Navigate back to the first chapter by pressing on Project Socrates link
     When  I click on menu button Didcomm
     Then  I check if the content of the chapter title is didcomm_chapter_title
     When  I click on link Project Socrates
@@ -63,10 +63,10 @@ Feature: Main Flows
   Scenario: Editor functionalities - Search field and Edit Page function
     Given I check if the content of the chapter title is introduction_chapter_title
     When  I search for Welcome in the text
-    # How this sould be working, this seems to be not working properly currently
+    # How search should be working ? This not seems to be working properly
 
     When I click on link Edit this page
-    # No information about the exact funcionality, but we should see the content we want to edit so let's check that
+    # In case of editing a page, we should see the content we want to edit
     Then I check if the content of the chapter title is introduction_chapter_title
 
 

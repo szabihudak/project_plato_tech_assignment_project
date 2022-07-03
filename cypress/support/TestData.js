@@ -1,5 +1,6 @@
 export class TestData {
 
+    app_url = 'https://very-important.vercel.app/'
     introduction_chapter_title = "Welcome to the Documentation"
     introduction_paragraph_content = "Here you can get all the information you need about the product"
     didcomm_chapter_title = "DIDComm Messaging"
@@ -12,6 +13,10 @@ export class TestData {
     ssi_paragraph_3 = "It is generally recognized that for an identity system to be self-sovereign, users control the verifiable credentials that they hold and their consent is required to use those credentials. This reduces the unintended sharing of users' personal data. This is contrasted with the centralized identity paradigm where identity is provided by some outside entity."
     ssi_paragraph_4 = "In an SSI system, holders generate and control unique identifiers called decentralized identifiers. Most SSI systems are decentralized, where the credentials are managed using crypto wallets and verified using public-key cryptography anchored on a distributed ledger. The credentials may contain data from an issuer's database, a social media account, a history of transactions on an e-commerce site, or attestation from friends or colleagues."
     ssi_page_chapter_title = "Decentralized Identifiers (DIDs) v1.0"
+
+    getAppUrl(content_id) {
+        return this.app_url
+    }
 
     getContent(content_id) {
         let content
