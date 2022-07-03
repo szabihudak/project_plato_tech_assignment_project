@@ -45,11 +45,11 @@ npm run {related script}
 
    - Scripts for test execution:
      - execute one test execution script, after that the reporting script. If you use execution scripts from the first group, before the report creation you have to close the browser instance which was opened during the test execution.
-       - for exampre:
+       - for example:
          - npm run execute-on-edge
          - npm run generate-html-report
      - or, use the scripts from the last group which will execute the tests and create the reports as well
-       - for exampre:
+       - for example:
            - execute-on-chrome-report-cucumber
 
 After the report creation you will find the BDD Cucumber HTML report in the ./cypress/reports/cucumber-html directory
