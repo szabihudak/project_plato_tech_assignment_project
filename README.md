@@ -5,13 +5,14 @@
  - Cucumber and Cucumber reporter for BDD Gherkin layer
 
 ###Project Structure
- - BDD Gherkin TC descriptions - ./integration/MainFlows.feature
- - Step definitions - ./integration/MainFlows/MainFlow.js
- - Page Object models - ./support/PageObjects/DocumentationPage.js
- - Test data - ./support/TestData.js
+ - BDD Gherkin TC descriptions - ./cypress//integration/MainFlows.feature
+ - Step definitions - ./cypress/integration/MainFlows/MainFlow.js
+ - Page Object models - ./cypress/support/PageObjects/DocumentationPage.js
+ - Test data - ./cypress/support/TestData.js
  - Scripts for test execution and reporting - ./package.json
 
 ###Install
+ - Open the project_plato_tech_assignment_project library
  - Run 'npm install' for download and setup the necessary dependencies
 
 ###Test Execution
@@ -51,7 +52,7 @@ npm run {related script}
        - for exampre:
            - execute-on-chrome-report-cucumber
 
-After the report creation you will find the BDD Cucumber HTML report in the ./reports/cucumber-html directory
+After the report creation you will find the BDD Cucumber HTML report in the ./cypress/reports/cucumber-html directory
 
 ###Limitations
 I recommend to use Chrome or Edge for testing, new tab handling does not work correctly in case of Firefox in the current Cypress version.
