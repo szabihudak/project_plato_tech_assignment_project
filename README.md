@@ -43,8 +43,8 @@ npm run {related script}
      - execute-on-firefox-report-cucumber
      - execute-on-edge-report-cucumber
 
-   - Scripts for test execution:
-     - execute one test execution script, after that the reporting script. If you use execution scripts from the first group, before the report creation you have to close the browser instance which was opened during the test execution.
+   - Test execution steps:
+     - execute one test execution scripts, after that the reporting script. If you use execution scripts from the first group, before the report creation you have to close the browser instance which was opened during the test execution.
        - for example:
          - npm run execute-on-edge
          - npm run generate-html-report
