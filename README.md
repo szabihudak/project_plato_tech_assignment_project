@@ -1,21 +1,21 @@
 # Project Plato Tech Assignment Project
 
-###Tech Stack
+### Tech Stack
  - Cypress TA framework, JS
  - Cucumber and Cucumber reporter for BDD Gherkin layer
 
-###Project Structure
+### Project Structure
  - BDD Gherkin TC descriptions - ./cypress//integration/MainFlows.feature
  - Step definitions - ./cypress/integration/MainFlows/MainFlow.js
  - Page Object models - ./cypress/support/PageObjects/DocumentationPage.js
  - Test data - ./cypress/support/TestData.js
  - Scripts for test execution and reporting - ./package.json
 
-###Install
+### Install
  - Open the project_plato_tech_assignment_project library
  - Run 'npm install' for download and setup the necessary dependencies
 
-###Test Execution
+### Test Execution
 Run the following scripts form package.json or from terminal using the following format:
 npm run {related script}
 
@@ -54,8 +54,8 @@ npm run {related script}
 
 After the report creation you will find the BDD Cucumber HTML report in the ./cypress/reports/cucumber-html directory
 
-###Limitations
+### Limitations
 I recommend to use Chrome or Edge for testing, new tab handling does not work correctly in case of Firefox in the current Cypress version.
 
-###Bugs ang Questions
+### Bugs ang Questions
 Bugs and questions are in the ./BugsAndQuestions.md file
